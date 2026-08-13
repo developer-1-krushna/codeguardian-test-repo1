@@ -1,15 +1,14 @@
-def fibonacci_iterative(n):
-    if n <= 0:
-        return []
-    elif n == 1:
-        return [0]
+def fibonacci_recursive(n):
     
-    series = [0, 1]
+    if n <= 1:
+        return n
     
-    for i in range(2, n):
-        next_term = series[-1] + series[-2]
-        series.append(next_term)
-        
-    return series
+    else:
+        return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
 
-print(fibonacci_iterative(10))
+
+n_terms = 10
+series = [fibonacci_recursive(i) for i in range(n_terms)]
+
+print(series)
+
